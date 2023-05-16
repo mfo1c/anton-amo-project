@@ -39,12 +39,12 @@ def get_tokens():
         token = response.json()['response']['chats']['session']['access_token']
 
         response = session.get(f'{secret_info.env_info.account_url}/api/v4/account?with=amojo_id', headers=headers)
-        print(response.text)
-        print(response.json())
+
+        t2 = response.json()['amojo_id']
     except Exception as e:
         print(e)
         time.sleep(3)
         return get_tokens()
-    print('New token:', token)
-    return '', token
+    print('New tokens:', t2, token)
+    return t2, token
 
