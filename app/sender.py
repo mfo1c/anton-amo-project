@@ -21,7 +21,10 @@ def get_answer(amo_messages):
             })
     print(len(data))
     url = 'https://api.suvvy.ai/api/v1/predict/chat/placeholder'
-    response = requests.post(url, data=data, headers=headers)
+    response = requests.post(url, data={
+        'prompt': data,
+        'placeholders': {}
+    }, headers=headers)
     print('RESPONSE')
     print(response.text)
     return response.json()['prediction']
