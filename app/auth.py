@@ -37,6 +37,10 @@ def get_token():
         }
         response = session.post(f'{secret_info.env_info.account_url}/ajax/v1/chats/session', headers=headers, data=payload)
         token = response.json()['response']['chats']['session']['access_token']
+
+        response = session.get(f'{secret_info.env_info.account_url}/api/v4/account?with=amojo_id', headers=headers)
+        print(response.text)
+        print(response.json())
     except Exception as e:
         print(e)
         time.sleep(3)
