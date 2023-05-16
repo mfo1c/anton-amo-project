@@ -3,7 +3,7 @@ import requests
 
 def get_answer(amo_messages):
     data = []
-    print(amo_messages[0])
+    print(amo_messages[0], amo_messages[1])
     return 'success'
     for amo_message in amo_messages:
         if amo_message:
