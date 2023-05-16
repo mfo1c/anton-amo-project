@@ -18,6 +18,6 @@ def hello():
     chat_history = amo.get_chat_history(receiver_id)
     answer_from_api = sender.get_answer(chat_history)
     amo.send_message(receiver_id, answer_from_api)
-
+    return 'ok'
 
 flask_app.run(host='0.0.0.0', debug=True)
