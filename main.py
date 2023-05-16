@@ -17,7 +17,7 @@ def hello():
     receiver_id = d['message[add][0][chat_id]']
     chat_history = amo.get_chat_history(receiver_id)
     answer_from_api = sender.get_answer(chat_history)
-    amo.send_message(answer_from_api)
+    amo.send_message(receiver_id, answer_from_api)
 
 
 flask_app.run(host='0.0.0.0', debug=True)
