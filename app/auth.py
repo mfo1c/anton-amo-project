@@ -5,7 +5,7 @@ import requests
 import secret_info
 
 
-def get_token():
+def get_tokens():
     try:
         session = requests.Session()
         response = session.get(secret_info.env_info.account_url + "/")
@@ -44,7 +44,7 @@ def get_token():
     except Exception as e:
         print(e)
         time.sleep(3)
-        return get_token()
+        return get_tokens()
     print('New token:', token)
-    return token
+    return '', token
 
