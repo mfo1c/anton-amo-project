@@ -19,7 +19,7 @@ def get_token():
             'Cookie': f'session_id={session_id}; '
                       f'csrf_token={csrf_token};'
                       f'last_login={secret_info.env_info.login}',
-            'Host': f'{secret_info.env_info.account_url}'.replace('https://'),
+            'Host': f'{secret_info.env_info.account_url}'.replace('https://', ''),
             'Origin': f'{secret_info.env_info.account_url}',
             'Referer': f'{secret_info.env_info.account_url}/',
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
