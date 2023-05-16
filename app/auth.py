@@ -6,7 +6,8 @@ import secret_info
 
 
 def get_token():
-    try:
+    #try:
+    if True:
         session = requests.Session()
         print(secret_info.env_info)
         response = session.get(secret_info.env_info.account_url + "/")
@@ -41,10 +42,10 @@ def get_token():
         }
         response = session.post(f'{secret_info.env_info.account_url}/ajax/v1/chats/session', headers=headers, data=payload)
         token = response.json()['response']['chats']['session']['access_token']
-    except Exception as e:
-        print(e)
-        time.sleep(3)
-        return get_token()
+    #except Exception as e:
+    #    print(e)
+    #    time.sleep(3)
+    #    return get_token()
     print('New token:', token)
     return token
 
