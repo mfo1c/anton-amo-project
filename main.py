@@ -11,6 +11,7 @@ flask_app = Flask(__name__)
 @flask_app.route('/', methods=["POST"])
 def hello():
     d = request.form.to_dict()
+    print(d)
     if int(d['message[add][0][created_at]']) + 10 < int(time.time()):
         return 'ok'  # избавление от дублей от амо
     receiver_id = d['message[add][0][chat_id]']
