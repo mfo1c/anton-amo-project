@@ -8,7 +8,8 @@ import secret_info
 def get_token():
     try:
         session = requests.Session()
-        response = session.get(secret_info.env_info.account_url)
+        print(secret_info.env_info)
+        response = session.get(secret_info.env_info.account_url + "/")
         session_id = response.cookies.get('session_id')
         csrf_token = response.cookies.get('csrf_token')
         headers = {
@@ -16,7 +17,7 @@ def get_token():
             'X-Requested-With': 'XMLHttpRequest',
             'Cookie': f'session_id={session_id}; '
                       f'csrf_token={csrf_token};'
-                      f'last_login={secret_info.env_info.account_url}',
+                      f'last_login={secret_info.env_info.login}',
             'Host': f'{secret_info.env_info.account_url}',
             'Origin': f'{secret_info.env_info.account_url}',
             'Referer': f'{secret_info.env_info.account_url}',
