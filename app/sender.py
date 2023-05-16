@@ -2,7 +2,7 @@ import requests
 
 api_token = '934363.Gy_Z7Kplumx-KmTvoRaVmkDW3RA4nsWGYgWHii_Ikqw'
 headers = {
-    'Authorization': f'Bearer {api_token}'
+    'Authorization': f'bearer {api_token}'
 }
 
 
